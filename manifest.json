@@ -1,25 +1,35 @@
 {
-  "short_name": "Medium Dark",
-  "name": "Medium Dark Mode",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "icons": {
-    "16": "icons/logo-medium16.png",
-    "48": "icons/logo-medium16.png",
-    "128": "icons/logo-medium128.png"
-  },
+  "manifest_version": 3,
+  "name": "Dark Mode: Medium",
+  "description": "JS to Invert Colors",
+  "author": "Marc Santiago",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.medium.com/*",
+        "https://medium.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+    "icons": {
+      "16": "icons/logo-medium16.png",
+      "48": "icons/logo-medium16.png",
+      "128": "icons/logo-medium128.png"
+    },
   "permissions": [
     "activeTab",
-    "tabs",
-    "https://www.medium.com/*",
-    "https://medium.com/*",
-    "https://hackernoon.com/*"
+    "scripting"
   ],
-  "manifest_version": 2,
-  "browser_action": {
-    "default_title": "Medium Dark"
+  "background": {
+    "service_worker": "background.js"
   },
-  "version": "1.0"
+  "action": {
+    "default_icon": {
+      "16": "icons/logo-medium16.png",
+      "48": "icons/logo-medium16.png",
+      "128": "icons/logo-medium128.png"
+    }
+  }
 }
